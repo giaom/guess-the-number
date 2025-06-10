@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const attemptsDisplay = document.getElementById('attempts');
     const bestScoreDisplay = document.getElementById('best-score');
     const resetButton = document.getElementById('reset');
+    const resetBestScoreButton = document.getElementById('reset-best-score');
 
     let target = getRandomNumber();
     let attempts = 0;
@@ -36,6 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     resetButton.addEventListener('click', resetGame);
+
+    resetBestScoreButton.addEventListener('click', () => {
+        localStorage.removeItem('bestScore');
+        bestScore = null;
+        updateBestScore();
+    });
+
 
     function getRandomNumber() {
         return Math.floor(Math.random() * 100) + 1;
