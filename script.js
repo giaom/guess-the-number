@@ -4,6 +4,7 @@ const feedback = document.getElementById('feedback');
 const attemptsDisplay = document.getElementById('attempts');
 const bestScoreDisplay = document.getElementById('best-score');
 const resetButton = document.getElementById('reset');
+const title = document.getElementById('title');
 
 let target = getRandomNumber();
 let attempts = 0;
@@ -27,8 +28,8 @@ form.addEventListener('submit', (e) => {
         wrongGuesses++;
         giveSmartHint(guess);
 
-        // Evil Mode every 5 wrong guesses
-        if (wrongGuesses % 5 === 0) {
+        // Evil Mode every 10 wrong guesses
+        if (wrongGuesses % 10 === 0) {
             evilShift();
         }
     }
@@ -47,13 +48,17 @@ function giveSmartHint(guess) {
 
     if (diff >= 35) {
         hint = guess > target ? 'Way too high!' : 'Way too low!';
+    } else if (diff >= 20) {
+        hint = guess > target ? 'Two high!' : 'Two low!';
     } else if (diff >= 15) {
         hint = guess > target ? 'Too high!' : 'Too low!';
+    } else if (diff >= 10) {
+        hint = guess > target ? 'High!' : 'Low!';
     } else {
         hint = guess > target ? 'A bit high.' : 'A bit low.';
     }
 
-    feedback.textContent = hint;
+    feedback.textContent = `${guess}: ${hint}`;
 }
 
 function saveBestScore() {
@@ -75,7 +80,18 @@ function evilShift() {
     console.log(`>:D Evil mode activated! Number changed from ${target} to ${newTarget}`);
     target = newTarget;
     feedback.textContent += ' (The game just got trickier!)';
+    title.style.color = getRandomColor();  // change title color randomly
 }
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 
 function disableInput() {
     input.disabled = true;
@@ -90,5 +106,5 @@ function resetGame() {
     form.querySelector('button').disabled = false;
     feedback.textContent = '';
     attemptsDisplay.textContent = 'Attempts: 0';
+    title.style.color = 'black';
 }
-
