@@ -25,3 +25,9 @@ button {
   margin-top: 1rem;
   font-size: 1rem;
 }
+
+.hints-text {
+  font-size: 0.85rem;
+  line-height: 1.2;
+  margin-top: 8px;
+}
