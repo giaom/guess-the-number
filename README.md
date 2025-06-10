@@ -2,6 +2,14 @@
 
 A simple web game where you try to guess the secret number (1–100). Made with only HTML, CSS, and vanilla JavaScript.
 
+## Live Site
+
+[https://giaom.github.io/guess-the-number/]
+
+## Repo
+
+[https://github.com/giaom/guess-the-number]
+
 ## Features
 
 - Smart hints (e.g., "Way too low", "A bit high")
@@ -16,16 +24,10 @@ A simple web game where you try to guess the secret number (1–100). Made with 
 3. Follow the feedback to find the number
 4. Try to beat your best score!
 
-## Tech
+## Hints
 
-- No libraries used
-- All logic runs in-browser
-- Responsive and accessible
-
-## Live Site
-
-[https://giaom.github.io/guess-the-number/]
-
-## Repo
-
-[https://github.com/giaom/guess-the-number]
+Way too high / low: 35+ away<br>
+Two high / low: 20+ away<br>
+Too high / low: 15+ away<br>
+High / Low: 10+ away<br>
+A bit high / low: less than 10 away

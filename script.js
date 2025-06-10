@@ -1,10 +1,10 @@
+const title = document.getElementById('title');
 const form = document.getElementById('guess-form');
 const input = document.getElementById('guess');
 const feedback = document.getElementById('feedback');
 const attemptsDisplay = document.getElementById('attempts');
 const bestScoreDisplay = document.getElementById('best-score');
 const resetButton = document.getElementById('reset');
-const title = document.getElementById('title');
 
 let target = getRandomNumber();
 let attempts = 0;
@@ -80,7 +80,7 @@ function evilShift() {
     console.log(`>:D Evil mode activated! Number changed from ${target} to ${newTarget}`);
     target = newTarget;
     feedback.textContent += ' (The game just got trickier!)';
-    title.style.color = getRandomColor();  // change title color randomly
+    title.style.color = getRandomColor(); 
 }
 
 function getRandomColor() {
