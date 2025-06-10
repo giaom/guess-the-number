@@ -29,6 +29,18 @@ button {
   margin-right: auto;
 }
 
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button-row button {
+  flex: 1;
+}
+
+
 .hints-text {
   font-size: 0.80rem;
   line-height: 1.5;

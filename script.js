@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const attemptsDisplay = document.getElementById('attempts');
     const bestScoreDisplay = document.getElementById('best-score');
     const resetButton = document.getElementById('reset');
-    const resetBestScoreButton = document.getElementById('reset-best-score');
+    const resetScoreButton = document.getElementById('reset-score');
 
     let target = getRandomNumber();
     let attempts = 0;
@@ -38,12 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     resetButton.addEventListener('click', resetGame);
 
-    resetBestScoreButton.addEventListener('click', () => {
+    resetScoreButton.addEventListener('click', () => {
         localStorage.removeItem('bestScore');
         bestScore = null;
         updateBestScore();
     });
-
 
     function getRandomNumber() {
         return Math.floor(Math.random() * 100) + 1;
@@ -84,15 +83,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const min = Math.max(0, target - 10);
         const max = Math.min(100, target + 10);
         const newTarget = Math.floor(Math.random() * (max - min + 1)) + min;
-        console.log(`>:D Evil mode activated! Number changed from ${target} to ${newTarget}`);
-        target = newTarget;
-        // feedback.textContent += ' (>:D The game just got trickier!)';
-        // title.style.color = getRandomColor();
         const newColor = getRandomColor();
-        title.style.color = newColor;
-        const trickyMessage = ` <span style="color: ${newColor}">(>:D The game just got trickier!)</span>`;
-        feedback.innerHTML += trickyMessage;
+        target = newTarget;
 
+        console.log(`>:D Evil mode activated! Number changed from ${target} to ${newTarget}`);
+
+        title.style.color = newColor;
+
+        feedback.innerHTML += ` <span style="color:${newColor}">(:D The game just got trickier!)</span>`;
     }
 
     function getRandomColor() {
