@@ -78,8 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const newTarget = Math.floor(Math.random() * (max - min + 1)) + min;
         console.log(`>:D Evil mode activated! Number changed from ${target} to ${newTarget}`);
         target = newTarget;
-        feedback.textContent += ' (>:D The game just got trickier!)';
-        title.style.color = getRandomColor();
+        // feedback.textContent += ' (>:D The game just got trickier!)';
+        // title.style.color = getRandomColor();
+        const newColor = getRandomColor();
+        title.style.color = newColor;
+        const trickyMessage = ` <span style="color: ${newColor}">(>:D The game just got trickier!)</span>`;
+        feedback.innerHTML += trickyMessage;
+
     }
 
     function getRandomColor() {
